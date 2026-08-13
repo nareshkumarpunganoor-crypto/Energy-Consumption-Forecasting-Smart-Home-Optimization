@@ -193,4 +193,4 @@ Free to use, modify, and distribute.
 
 ## Live Demo
 
-https://energy-consumption-forecasting-smart-home-optimi-production.up.railway.app
+(https://nareshkumarpunganoor-crypto.github.io/Energy-Consumption-Forecasting-Smart-Home-Optimization/)
