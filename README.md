@@ -19,23 +19,30 @@ in your browser with no server or internet required.
   colour coded by pricing tier
 - Shows live status of all home devices
 - Appliance breakdown doughnut chart
+- <img width="1865" height="875" alt="Screenshot 2026-08-13 183545" src="https://github.com/user-attachments/assets/9a835642-16a9-4651-9bf2-7510ed31d08f" />
+
 
 ### 2. Forecast Tab
 - Predicts next 24 hours of energy consumption
 - Line chart showing predicted kWh and estimated cost
 - Full hourly table with pricing tier badges
 - Refresh button to generate new forecast
+<img width="1858" height="915" alt="Screenshot 2026-08-13 183742" src="https://github.com/user-attachments/assets/b98be63f-3427-4214-a518-648e4251c913" />
 
 ### 3. History Tab
 - Shows past consumption and temperature data
 - Dual axis chart (kWh + temperature)
 - Select last 24 hours, 48 hours, 72 hours, or 7 days
 - Scrollable data table
+- <img width="1853" height="902" alt="Screenshot 2026-08-13 183816" src="https://github.com/user-attachments/assets/8b55b04a-93c7-4e91-b968-db3e665d9f1f" />
+
 
 ### 4. Tips Tab
 - Personalized energy saving recommendations
 - Time-aware alerts (example: peak hour warning at 5 PM)
 - Estimated savings for each tip
+- <img width="1849" height="908" alt="Screenshot 2026-08-13 183947" src="https://github.com/user-attachments/assets/5e43066c-98dc-4c97-88e5-23af893a0b32" />
+
 
 ---
 
