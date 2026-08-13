@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>⚡ Energy Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <span class="logo">⚡</span>
+      <h1>Smart Energy Dashboard</h1>
+    </div>
+    <div class="header-right">
+      <span class="badge" id="statusBadge">● Live</span>
+      <span id="clock"></span>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav>
+    <button class="tab active" data-tab="dashboard">📊 Dashboard</button>
+    <button class="tab" data-tab="forecast">🔮 Forecast</button>
+    <button class="tab" data-tab="history">📈 History</button>
+    <button class="tab" data-tab="tips">💡 Tips</button>
+  </nav>
+
+  <main>
+
+    <!-- DASHBOARD -->
+    <section id="tab-dashboard" class="tab-content active">
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">🔋</div>
+          <div class="card-body">
+            <p class="card-label">Current Power</p>
+            <p class="card-value" id="currentPower">2.4</p>
+            <p class="card-unit">kW</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <div class="card-body">
+            <p class="card-label">Today Usage</p>
+            <p class="card-value" id="todayUsage">18.6</p>
+            <p class="card-unit">kWh</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">💰</div>
+          <div class="card-body">
+            <p class="card-label">Today Cost</p>
+            <p class="card-value" id="todayCost">2.79</p>
+            <p class="card-unit">USD</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌡️</div>
+          <div class="card-body">
+            <p class="card-label">Temperature</p>
+            <p class="card-value" id="temperature">22</p>
+            <p class="card-unit">°C</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">☀️</div>
+          <div class="card-body">
+            <p class="card-label">Solar Power</p>
+            <p class="card-value" id="solarPower">1.2</p>
+            <p class="card-unit">kW</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">⏰</div>
+          <div class="card-body">
+            <p class="card-label">Peak Hour</p>
+            <p class="card-value">19</p>
+            <p class="card-unit">:00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hourly Pattern Chart -->
+      <div class="chart-box">
+        <h2>Average Hourly Consumption</h2>
+        <p class="chart-note">
+          🟢 Off-Peak (cheap) &nbsp;
+          🟡 Mid-Peak &nbsp;
+          🔴 Peak (expensive)
+        </p>
+        <div class="chart-wrap">
+          <canvas id="patternChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Appliance Breakdown -->
+      <div class="chart-box">
+        <h2>Appliance Breakdown</h2>
+        <div class="chart-wrap">
+          <canvas id="applianceChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Live Status -->
+      <div class="chart-box">
+        <h2>Live Device Status</h2>
+        <div class="device-list" id="deviceList"></div>
+      </div>
+
+    </section>
+
+    <!-- FORECAST -->
+    <section id="tab-forecast" class="tab-content">
+
+      <div class="forecast-header">
+        <h2>24-Hour Energy Forecast</h2>
+        <button class="btn" onclick="refreshForecast()">
+          🔄 Refresh
+        </button>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-wrap">
+          <canvas id="forecastChart"></canvas>
+        </div>
+      </div>
+
+      <div class="table-box">
+        <table id="forecastTable">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Forecast (kWh)</th>
+              <th>Tier</th>
+              <th>Rate ($/kWh)</th>
+              <th>Est. Cost ($)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- HISTORY -->
+    <section id="tab-history" class="tab-content">
+
+      <div class="forecast-header">
+        <h2>Consumption History</h2>
+        <select id="hoursSelect" onchange="renderHistory()">
+          <option value="24">Last 24 hours</option>
+          <option value="48" selected>Last 48 hours</option>
+          <option value="72">Last 72 hours</option>
+          <option value="168">Last 7 days</option>
+        </select>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-wrap">
+          <canvas id="historyChart"></canvas>
+        </div>
+      </div>
+
+      <div class="table-box">
+        <table id="historyTable">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Consumption (kWh)</th>
+              <th>Temperature (°C)</th>
+              <th>Cost ($)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- TIPS -->
+    <section id="tab-tips" class="tab-content">
+      <h2>⚡ Energy Saving Tips</h2>
+      <div class="tips-list" id="tipsList"></div>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
